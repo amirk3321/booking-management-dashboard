@@ -20,11 +20,11 @@ class _BodyContentWidgetState extends State<BodyContentWidget> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: widget.sizingInformation.screenSize.width / 1.2,
+        width: widget.sizingInformation.screenSize.width / 1.4,
         child: Column(
           children: [
-            // _headerWidget(),
-            // _quickStatsWidget(),
+            _headerWidget(),
+            _quickStatsWidget(),
             _rowButtons(),
             SizedBox(
               height: 5,
