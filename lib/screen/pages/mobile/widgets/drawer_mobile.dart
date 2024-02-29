@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DrawerMobile extends StatelessWidget {
@@ -39,9 +38,15 @@ class DrawerMobile extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20,),
-          Divider(thickness: 0.50,),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
+          Divider(
+            thickness: 0.50,
+          ),
+          SizedBox(
+            height: 20,
+          ),
           _singleButton(icon: Icons.widgets, title: 'Main'),
           Divider(
             thickness: 0.50,
@@ -72,11 +77,11 @@ class DrawerMobile extends StatelessWidget {
     );
   }
 
-  Widget _singleButton({IconData icon, String title}) {
+  Widget _singleButton({IconData? icon, String? title}) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 8),
       child: Row(
-        children: [Icon(icon), Text(title)],
+        children: [Icon(icon), Text(title!)],
       ),
     );
   }

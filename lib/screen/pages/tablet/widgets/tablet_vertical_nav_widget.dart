@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TabletVerticalNavWidget extends StatefulWidget {
   @override
-  _TabletVerticalNavWidgetState createState() => _TabletVerticalNavWidgetState();
+  _TabletVerticalNavWidgetState createState() =>
+      _TabletVerticalNavWidgetState();
 }
 
 class _TabletVerticalNavWidgetState extends State<TabletVerticalNavWidget> {
@@ -44,17 +44,21 @@ class _TabletVerticalNavWidgetState extends State<TabletVerticalNavWidget> {
     );
   }
 
-  Widget _colSingleButton({IconData icon, Color borderColor,Color iconColor}) {
+  Widget _colSingleButton(
+      {IconData? icon, Color? borderColor, Color? iconColor}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 35),
       child: Container(
         width: 70,
-        child: Icon(icon,color: iconColor,),
+        child: Icon(
+          icon,
+          color: iconColor,
+        ),
         decoration: BoxDecoration(
           border: Border(
             right: BorderSide(
               width: 2,
-              color: borderColor,
+              color: borderColor!,
             ),
           ),
         ),
@@ -74,9 +78,8 @@ class _TabletVerticalNavWidgetState extends State<TabletVerticalNavWidget> {
               },
               child: _colSingleButton(
                   icon: Icons.widgets,
-                  iconColor: _buttonCurrentIndex == 0
-                      ? Colors.indigo
-                      : Colors.black,
+                  iconColor:
+                      _buttonCurrentIndex == 0 ? Colors.indigo : Colors.black,
                   borderColor: _buttonCurrentIndex == 0
                       ? Colors.deepOrange
                       : Colors.transparent)),
@@ -88,9 +91,8 @@ class _TabletVerticalNavWidgetState extends State<TabletVerticalNavWidget> {
               },
               child: _colSingleButton(
                   icon: Icons.score,
-                  iconColor: _buttonCurrentIndex == 1
-                      ? Colors.indigo
-                      : Colors.black,
+                  iconColor:
+                      _buttonCurrentIndex == 1 ? Colors.indigo : Colors.black,
                   borderColor: _buttonCurrentIndex == 1
                       ? Colors.deepOrange
                       : Colors.transparent)),
@@ -102,9 +104,8 @@ class _TabletVerticalNavWidgetState extends State<TabletVerticalNavWidget> {
             },
             child: _colSingleButton(
                 icon: Icons.calendar_today,
-                iconColor: _buttonCurrentIndex == 2
-                    ? Colors.indigo
-                    : Colors.black,
+                iconColor:
+                    _buttonCurrentIndex == 2 ? Colors.indigo : Colors.black,
                 borderColor: _buttonCurrentIndex == 2
                     ? Colors.deepOrange
                     : Colors.transparent),
@@ -117,9 +118,8 @@ class _TabletVerticalNavWidgetState extends State<TabletVerticalNavWidget> {
             },
             child: _colSingleButton(
                 icon: Icons.pages,
-                iconColor: _buttonCurrentIndex == 3
-                    ? Colors.indigo
-                    : Colors.black,
+                iconColor:
+                    _buttonCurrentIndex == 3 ? Colors.indigo : Colors.black,
                 borderColor: _buttonCurrentIndex == 3
                     ? Colors.deepOrange
                     : Colors.transparent),
@@ -132,9 +132,8 @@ class _TabletVerticalNavWidgetState extends State<TabletVerticalNavWidget> {
             },
             child: _colSingleButton(
                 icon: Icons.message,
-                iconColor: _buttonCurrentIndex == 4
-                    ? Colors.indigo
-                    : Colors.black,
+                iconColor:
+                    _buttonCurrentIndex == 4 ? Colors.indigo : Colors.black,
                 borderColor: _buttonCurrentIndex == 4
                     ? Colors.deepOrange
                     : Colors.transparent),
@@ -147,9 +146,8 @@ class _TabletVerticalNavWidgetState extends State<TabletVerticalNavWidget> {
             },
             child: _colSingleButton(
                 icon: Icons.settings,
-                iconColor: _buttonCurrentIndex == 5
-                    ? Colors.indigo
-                    : Colors.black,
+                iconColor:
+                    _buttonCurrentIndex == 5 ? Colors.indigo : Colors.black,
                 borderColor: _buttonCurrentIndex == 5
                     ? Colors.deepOrange
                     : Colors.transparent),
@@ -160,6 +158,9 @@ class _TabletVerticalNavWidgetState extends State<TabletVerticalNavWidget> {
   }
 
   Widget _logoutButton() {
-    return Icon(Icons.exit_to_app);
+    return Icon(
+      Icons.light_mode,
+      size: 75,
+    );
   }
 }

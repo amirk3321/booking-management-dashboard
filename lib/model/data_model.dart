@@ -1,8 +1,11 @@
-
-class DataModel{
+class DataModel {
   final String serviceName;
   final String date;
   final String time;
 
-  DataModel({this.serviceName, this.date, this.time});
+  DataModel({
+    required this.serviceName,
+    required this.date,
+    required this.time,
+  });
 }

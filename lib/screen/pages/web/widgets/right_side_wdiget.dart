@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 class RightSideWidget extends StatelessWidget {
   @override
@@ -87,13 +85,17 @@ class RightSideWidget extends StatelessWidget {
                       "Hello,",
                       style: TextStyle(fontSize: 18),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       "Amir Khan!",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       "Lorem Ipsum is simply dummy text.",
                       textAlign: TextAlign.justify,
@@ -227,51 +229,51 @@ class RightSideWidget extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 15,),
-          _singleRowButton(
-            title: "Booking Reminder",
-            description: "Lorem Ipsum is simply dummy text",
-            icon: Icons.announcement_outlined,
-            iconColor: Colors.red[600],
-            boxColor: Colors.red[100]
+          SizedBox(
+            height: 15,
           ),
+          _singleRowButton(
+              title: "Booking Reminder",
+              description: "Lorem Ipsum is simply",
+              icon: Icons.announcement_outlined,
+              iconColor: Colors.red.shade600,
+              boxColor: Colors.red.shade100),
           SizedBox(height: 15),
           _singleRowButton(
               title: "New Message",
-              description: "Lorem Ipsum is simply dummy text",
+              description: "Lorem Ipsum is simply",
               icon: Icons.announcement_outlined,
-              iconColor: Colors.yellow[600],
-              boxColor: Colors.yellow[100]
+              iconColor: Colors.yellow.shade600,
+              boxColor: Colors.yellow.shade100),
+          SizedBox(
+            height: 15,
           ),
-          SizedBox(height: 15,),
           _singleRowButton(
               title: "Upcoming Booking",
-              description: "Lorem Ipsum is simply dummy text",
+              description: "Lorem Ipsum is simply",
               icon: Icons.announcement_outlined,
-              iconColor: Colors.red[600],
-              boxColor: Colors.red[100]
-          ),
+              iconColor: Colors.red.shade600,
+              boxColor: Colors.red.shade100),
         ],
       ),
     );
   }
 
   _singleRowButton(
-      {Color boxColor,
-      Color iconColor,
-      IconData icon,
-      String title,
-      String description}) {
+      {Color? boxColor,
+      Color? iconColor,
+      IconData? icon,
+      String? title,
+      String? description}) {
     return Row(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
           height: 35,
           width: 35,
           decoration: BoxDecoration(
-            color: boxColor,
-            borderRadius: BorderRadius.all(Radius.circular(10))
-          ),
+              color: boxColor,
+              borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Icon(
             icon,
             size: 20,
@@ -285,10 +287,13 @@ class RightSideWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              title,
+              title!,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
-            Text(description,style: TextStyle(fontSize: 14,color: Colors.grey[400]),)
+            Text(
+              description!,
+              style: TextStyle(fontSize: 14, color: Colors.grey[400]),
+            )
           ],
         )
       ],

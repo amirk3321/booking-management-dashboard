@@ -1,12 +1,12 @@
 import 'package:booking_management_dashboard/repository/fake_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class BodyContentWidget extends StatefulWidget {
   final SizingInformation sizingInformation;
 
-  const BodyContentWidget({Key key, this.sizingInformation}) : super(key: key);
+  const BodyContentWidget({Key? key, required this.sizingInformation})
+      : super(key: key);
 
   @override
   _BodyContentWidgetState createState() => _BodyContentWidgetState();
@@ -18,18 +18,20 @@ class _BodyContentWidgetState extends State<BodyContentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: widget.sizingInformation.screenSize.width / 1.4,
-      child: Column(
-        children: [
-          _headerWidget(),
-          _quickStatsWidget(),
-          _rowButtons(),
-          SizedBox(
-            height: 5,
-          ),
-          _gridListItems(),
-        ],
+    return Center(
+      child: Container(
+        width: widget.sizingInformation.screenSize.width / 1.2,
+        child: Column(
+          children: [
+            // _headerWidget(),
+            // _quickStatsWidget(),
+            _rowButtons(),
+            SizedBox(
+              height: 5,
+            ),
+            _gridListItems(),
+          ],
+        ),
       ),
     );
   }
@@ -105,12 +107,12 @@ class _BodyContentWidgetState extends State<BodyContentWidget> {
         _singleItemQuickStats(
           title: "Total Bookings",
           value: "28,345",
-          icon: null,
+          // icon: null,
         ),
         _singleItemQuickStats(
             title: "Pending Approval",
             value: "180",
-            icon: null,
+            // icon: null,
             textColor: Colors.red),
         _singleItemQuickStats(
             title: "New Clients This Month",
@@ -137,12 +139,12 @@ class _BodyContentWidgetState extends State<BodyContentWidget> {
               title: "Total Bookings",
               value: "28,345",
               width: widget.sizingInformation.screenSize.width / 3.1,
-              icon: null,
+              // icon: null,
             ),
             _singleItemQuickStats(
                 title: "Pending Approval",
                 value: "180",
-                icon: null,
+                // icon: null,
                 width: widget.sizingInformation.screenSize.width / 3.1,
                 textColor: Colors.red),
           ],
@@ -172,12 +174,12 @@ class _BodyContentWidgetState extends State<BodyContentWidget> {
   }
 
   Widget _singleItemQuickStats(
-      {String title,
+      {String? title,
       Color textColor = Colors.black,
-      String value,
-      IconData icon,
-      double width,
-      Color iconColor}) {
+      String? value,
+      IconData? icon,
+      double? width,
+      Color? iconColor}) {
     return Container(
       width: width,
       padding: EdgeInsets.symmetric(horizontal: 28, vertical: 18),
@@ -196,7 +198,7 @@ class _BodyContentWidgetState extends State<BodyContentWidget> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            title,
+            title!,
             style: TextStyle(color: textColor, fontSize: 18),
           ),
           SizedBox(
@@ -204,7 +206,7 @@ class _BodyContentWidgetState extends State<BodyContentWidget> {
           ),
           icon == null
               ? Text(
-                  value,
+                  value!,
                   style: TextStyle(
                       fontSize: 24,
                       color: Colors.black,
@@ -214,7 +216,7 @@ class _BodyContentWidgetState extends State<BodyContentWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      value,
+                      value!,
                       style: TextStyle(
                         fontSize: 28,
                         color: Colors.black,
@@ -293,17 +295,17 @@ class _BodyContentWidgetState extends State<BodyContentWidget> {
   }
 
   Widget _singleRowButton({
-    String title,
-    Color textColor,
-    Color borderColor,
+    String? title,
+    Color? textColor,
+    Color? borderColor,
   }) {
     return Container(
       height: 40,
       margin: EdgeInsets.only(right: 20),
       decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(width: 2, color: borderColor))),
+          border: Border(bottom: BorderSide(width: 2, color: borderColor!))),
       child: Text(
-        title,
+        title!,
         style: TextStyle(color: textColor, fontSize: 20),
       ),
     );
