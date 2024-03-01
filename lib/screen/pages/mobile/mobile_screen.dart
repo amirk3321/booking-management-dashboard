@@ -1,5 +1,4 @@
 import 'package:booking_management_dashboard/repository/fake_repository.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -7,17 +6,21 @@ import 'widgets/drawer_mobile.dart';
 
 class MobileScreen extends StatelessWidget {
   final _data = FakeRepository.data;
-  final scaffoldKey=GlobalKey<ScaffoldState>();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
-      builder: (_,sizingInformation){
+      builder: (_, sizingInformation) {
         return Scaffold(
           key: scaffoldKey,
           drawer: DrawerMobile(),
           appBar: AppBar(
-            leading: GestureDetector(onTap: (){scaffoldKey.currentState.openDrawer();},child: Icon(Icons.menu)),
+            leading: GestureDetector(
+                onTap: () {
+                  scaffoldKey.currentState!.openDrawer();
+                },
+                child: Icon(Icons.menu)),
             title: Text("Dashboard"),
             actions: [
               Icon(Icons.more_vert),
@@ -36,9 +39,10 @@ class MobileScreen extends StatelessWidget {
       },
     );
   }
+
   Widget _upgradeToProWidget() {
     return Container(
-      margin: EdgeInsets.only(top: 20,left: 20,right: 20,bottom: 20),
+      margin: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
@@ -73,6 +77,7 @@ class MobileScreen extends StatelessWidget {
       ),
     );
   }
+
   Widget _gridListItems() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
@@ -158,7 +163,9 @@ class MobileScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 8,),
+                    SizedBox(
+                      height: 8,
+                    ),
                     Text(
                       "Accept Booking",
                       style: TextStyle(fontSize: 16, color: Colors.indigo),
@@ -176,7 +183,7 @@ class MobileScreen extends StatelessWidget {
 
   Widget _row2by2Widget(SizingInformation sizingInformation) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -189,7 +196,7 @@ class MobileScreen extends StatelessWidget {
                   title: "Total Bookings",
                   value: "28,345",
                   width: sizingInformation.screenSize.width / 2.6,
-                  icon: null,
+                  // icon: null,
                 ),
               ),
               Padding(
@@ -197,7 +204,7 @@ class MobileScreen extends StatelessWidget {
                 child: _singleItemQuickStats(
                     title: "Pending Approval",
                     value: "180",
-                    icon: null,
+                    // icon: null,
                     width: sizingInformation.screenSize.width / 2.6,
                     textColor: Colors.red),
               ),
@@ -235,12 +242,12 @@ class MobileScreen extends StatelessWidget {
   }
 
   Widget _singleItemQuickStats(
-      {String title,
-        Color textColor = Colors.black,
-        String value,
-        IconData icon,
-        double width,
-        Color iconColor}) {
+      {String? title,
+      Color textColor = Colors.black,
+      String? value,
+      IconData? icon,
+      double? width,
+      Color? iconColor}) {
     return Container(
       width: width,
       height: 110,
@@ -260,7 +267,7 @@ class MobileScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            title,
+            title!,
             style: TextStyle(color: textColor, fontSize: 14),
           ),
           SizedBox(
@@ -268,29 +275,29 @@ class MobileScreen extends StatelessWidget {
           ),
           icon == null
               ? Text(
-            value,
-            style: TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-                fontWeight: FontWeight.bold),
-          )
+                  value!,
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                )
               : Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                value,
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      value!,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(
+                      icon,
+                      color: iconColor,
+                    )
+                  ],
                 ),
-              ),
-              Icon(
-                icon,
-                color: iconColor,
-              )
-            ],
-          ),
         ],
       ),
     );

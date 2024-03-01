@@ -9,18 +9,24 @@ class DesktopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
-      builder: (_,sizingInformation){
+      builder: (_, sizingInformation) {
         return Scaffold(
           body: Stack(
             children: [
               Row(
                 children: [
                   WebVerticalNavWidget(),
-                  BodyContentWidget(sizingInformation: sizingInformation,),
-
+                  BodyContentWidget(
+                    sizingInformation: sizingInformation,
+                  ),
                 ],
               ),
-              Positioned(child: RightSideWidget(),bottom: 0.0,top: 0.0,right: 0.0,)
+              Positioned(
+                child: RightSideWidget(),
+                bottom: 0.0,
+                top: 0.0,
+                right: 0.0,
+              )
             ],
           ),
         );

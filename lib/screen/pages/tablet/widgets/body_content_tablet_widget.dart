@@ -1,15 +1,16 @@
 import 'package:booking_management_dashboard/repository/fake_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class BodyContentTabletWidget extends StatefulWidget {
   final SizingInformation sizingInformation;
 
-  const BodyContentTabletWidget({Key key, this.sizingInformation}) : super(key: key);
+  const BodyContentTabletWidget({Key? key, required this.sizingInformation})
+      : super(key: key);
 
   @override
-  _BodyContentTabletWidgetState createState() => _BodyContentTabletWidgetState();
+  _BodyContentTabletWidgetState createState() =>
+      _BodyContentTabletWidgetState();
 }
 
 class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
@@ -91,13 +92,11 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
           SizedBox(
             height: 15,
           ),
-         _row2by2Widget()
-
+          _row2by2Widget()
         ],
       ),
     );
   }
-
 
   Widget _row2by2Widget() {
     return Column(
@@ -110,7 +109,7 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
               title: "Total Bookings",
               value: "28,345",
               width: widget.sizingInformation.screenSize.width / 2.4,
-              icon: null,
+              // icon: null,
             ),
             _singleItemQuickStats(
                 title: "Pending Approval",
@@ -145,12 +144,12 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
   }
 
   Widget _singleItemQuickStats(
-      {String title,
+      {String? title,
       Color textColor = Colors.black,
-      String value,
-      IconData icon,
-      double width,
-      Color iconColor}) {
+      String? value,
+      IconData? icon,
+      double? width,
+      Color? iconColor}) {
     return Container(
       width: width,
       padding: EdgeInsets.symmetric(horizontal: 28, vertical: 18),
@@ -169,7 +168,7 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            title,
+            title!,
             style: TextStyle(color: textColor, fontSize: 18),
           ),
           SizedBox(
@@ -177,7 +176,7 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
           ),
           icon == null
               ? Text(
-                  value,
+                  value!,
                   style: TextStyle(
                       fontSize: 24,
                       color: Colors.black,
@@ -187,7 +186,7 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      value,
+                      value!,
                       style: TextStyle(
                         fontSize: 28,
                         color: Colors.black,
@@ -266,17 +265,17 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
   }
 
   Widget _singleRowButton({
-    String title,
-    Color textColor,
-    Color borderColor,
+    String? title,
+    Color? textColor,
+    Color? borderColor,
   }) {
     return Container(
       height: 40,
       margin: EdgeInsets.only(right: 20),
       decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(width: 2, color: borderColor))),
+          border: Border(bottom: BorderSide(width: 2, color: borderColor!))),
       child: Text(
-        title,
+        title!,
         style: TextStyle(color: textColor, fontSize: 20),
       ),
     );
@@ -291,9 +290,7 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
         itemCount: _data.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount:
-                widget.sizingInformation.screenSize.width / 1.4 <= 860
-                    ? 2
-                    : 3,
+                widget.sizingInformation.screenSize.width / 1.4 <= 860 ? 2 : 3,
             childAspectRatio: 1.7),
         itemBuilder: (context, index) {
           return Container(
@@ -387,7 +384,7 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
 
   Widget _profileWidget() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
         children: [
           Row(
@@ -401,13 +398,17 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
                       "Hello,",
                       style: TextStyle(fontSize: 18),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       "Amir Khan!",
                       style:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       "Lorem Ipsum is simply dummy text.",
                       textAlign: TextAlign.justify,
@@ -429,7 +430,7 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: widget.sizingInformation.screenSize.width/1.5,
+                width: widget.sizingInformation.screenSize.width / 1.5,
                 height: 35,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
@@ -469,7 +470,9 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
           ),
           _upgradeToProWidget(),
           _reminderWidget(),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
         ],
       ),
     );
@@ -512,6 +515,7 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
       ),
     );
   }
+
   Widget _reminderWidget() {
     return Container(
       margin: EdgeInsets.only(top: 20),
@@ -543,7 +547,9 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
               ),
             ],
           ),
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -552,25 +558,24 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
                     title: "Booking Reminder",
                     description: "Lorem Ipsum is simply dummy text",
                     icon: Icons.announcement_outlined,
-                    iconColor: Colors.red[600],
-                    boxColor: Colors.red[100]
-                ),
+                    iconColor: Colors.red.shade600,
+                    boxColor: Colors.red.shade100),
                 SizedBox(height: 15),
                 _singleButton(
                     title: "New Message",
                     description: "Lorem Ipsum is simply dummy text",
                     icon: Icons.announcement_outlined,
-                    iconColor: Colors.yellow[600],
-                    boxColor: Colors.yellow[100]
+                    iconColor: Colors.yellow.shade600,
+                    boxColor: Colors.yellow.shade100),
+                SizedBox(
+                  height: 15,
                 ),
-                SizedBox(height: 15,),
                 _singleButton(
                     title: "Upcoming Booking",
                     description: "Lorem Ipsum is simply dummy text",
                     icon: Icons.announcement_outlined,
-                    iconColor: Colors.red[600],
-                    boxColor: Colors.red[100]
-                ),
+                    iconColor: Colors.red.shade600,
+                    boxColor: Colors.red.shade100),
               ],
             ),
           )
@@ -578,24 +583,24 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
       ),
     );
   }
+
   _singleButton(
-      {Color boxColor,
-        Color iconColor,
-        IconData icon,
-        String title,
-        String description}) {
+      {Color? boxColor,
+      Color? iconColor,
+      IconData? icon,
+      String? title,
+      String? description}) {
     return Container(
       margin: EdgeInsets.only(right: 8),
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
             height: 35,
             width: 35,
             decoration: BoxDecoration(
                 color: boxColor,
-                borderRadius: BorderRadius.all(Radius.circular(10))
-            ),
+                borderRadius: BorderRadius.all(Radius.circular(10))),
             child: Icon(
               icon,
               size: 20,
@@ -609,10 +614,13 @@ class _BodyContentTabletWidgetState extends State<BodyContentTabletWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                title!,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
-              Text(description,style: TextStyle(fontSize: 14,color: Colors.grey[400]),)
+              Text(
+                description!,
+                style: TextStyle(fontSize: 14, color: Colors.grey[400]),
+              )
             ],
           )
         ],
